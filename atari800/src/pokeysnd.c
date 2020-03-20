@@ -168,6 +168,8 @@ int POKEYSND_bienias_fix = TRUE;  /* when TRUE, high frequencies get emulated: b
 int POKEYSND_stereo_enabled = FALSE;
 #endif
 
+int POKEYSND_volume = 0x100;
+
 /* multiple sound engine interface */
 static void pokeysnd_process_8(void *sndbuffer, int sndn);
 static void pokeysnd_process_16(void *sndbuffer, int sndn);

@@ -266,6 +266,11 @@ typedef struct stPokeyState
 
 PokeyState pokey_states[NPOKEYS];
 
+static struct {
+    double s16;
+    double s8;
+} volume;
+
 /* Forward declarations for ResetPokeyState */
 
 static int readout0_normal(PokeyState* ps);
@@ -1421,6 +1426,10 @@ int MZPOKEYSND_Init(ULONG freq17, int playback_freq, UBYTE num_pokeys,
 #ifdef SYNCHRONIZED_SOUND
 	init_syncsound();
 #endif
+     volume.s8 = POKEYSND_volume * 0xff / 256.0;
+     volume.s16 = POKEYSND_volume * 0xffff / 256.0;
+
+
 	return 0; /* OK */
 }
 
